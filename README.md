@@ -8,7 +8,7 @@ The website where customer can create his own pizza (size/crust/toppings) and se
 ![Alt text](/pizza_constructor_email_message.png?raw=true "Email Message")
 
 ## Setup
-- ``` git clone https://github.com/kurekhombre/GoldenThought.git ```
+- ``` git clone https://github.com/kurekhombre/PizzaConstructor.git ```
 - Create virtual environment ```python3 -m venv venv``` and activate it
   - Linux/Mac ``` source venv/bin/activate ```
   - Windows ``` venv\Scripts\activate.bat ```
