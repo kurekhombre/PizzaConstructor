@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container d-flex justify-content">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <h2>Make your own Pizza</h2>
+            <hr>
+            <!-- SIZE AND CRUST -->
+            <h3>Size and Crust</h3>
+            {% for option_group in options_groups %}
+            <fieldset>
+            <legend>{{ options_group.name }}</legend>
+            {% for option in option_group.options.all %}
+            <input type="radio" id="{{ option.name }}" name="{{ option_group.name }}" value="{{ option.name }}" required/>
+            <label for="{{ option.name }}">{{ option.name }} - {{ option.price }}$</label>
+            {% endfor %}
+            </fieldset>
+            {% endfor %}
+            <hr>
+            <!-- INGREDIENTS -->
+            <h3>Toppings</h3>
+            <div class="toppings d-flex justify-content-between">
+            {% for topping_group in toppings_groups %}
+            <fieldset>
+            <legend>{{ topping_group.name }}</legend>
+            {% for topping in topping_group.toppings.all %}
+            <div>
+            <input type="number" id="{{ topping.name }}" name="{{ topping.name }}" min="1" max="5"/>
+            <label for="{{ topping.name }}">{{ topping.name }} - {{ topping.price }}$</label>
+            </div>
+            {% endfor %}
+            </fieldset>
+            {% endfor %}
+            </div>
+        <br>
+            <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+        </form>
+    </div>
+
+{% endblock %}

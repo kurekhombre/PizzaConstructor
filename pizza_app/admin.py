@@ -1,3 +1,4 @@
 from django.contrib import admin
+from .models import OptionGroup, Option, ToppingGroup, Topping, Order, OrderOption, OrderTopping
 
-# Register your models here.
+admin.site.register([OptionGroup, Option, ToppingGroup, Topping, Order, OrderOption, OrderTopping])

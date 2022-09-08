@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <br>
+    <div class="container d-flex justify-content-center align-items-center form-control">
+    <div class="order">
+    <h2>Order ID: {{ order_id }}</h2>
+    <h3>Price: {{ order_price }}$</h3>
+
+    <div>
+        {% for order_option in order_options %}
+        <div>
+            {{ order_option.option.name }}: {{ order_option.price }}$
+        </div>
+        {% endfor %}
+    </div>
+
+    <div>
+        {% for order_topping in order_toppings %}
+            <div>
+            {{ order_topping.topping.name }}: {{ order_topping.amount }}00 grams - {{ order_topping.price }}$
+            </div>
+        {% endfor %}
+    </div>
+    <h3>Please, fill in the details for placing an order:</h3>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+    </div>
+    </div>
+{% endblock %}
