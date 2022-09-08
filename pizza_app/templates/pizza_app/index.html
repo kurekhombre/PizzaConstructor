@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container d-flex justify-content">
+    <div class="container d-flex justify-content-center form-control">
         <form action="" method="POST">
             {% csrf_token %}
+            <div class="d-flex justify-content-center align-items-center">
             <h2>Make your own Pizza</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Pepperoni_pizza_%282%29.png" alt="Pizza" width="300px"/>
+            </div>
             <hr>
             <!-- SIZE AND CRUST -->
             <h3>Size and Crust</h3>
@@ -20,6 +23,7 @@
             <hr>
             <!-- INGREDIENTS -->
             <h3>Toppings</h3>
+            <p>per 100gram</p>
             <div class="toppings d-flex justify-content-between">
             {% for topping_group in toppings_groups %}
             <fieldset>
@@ -36,8 +40,9 @@
         <br>
             <div class="d-flex justify-content-center">
             <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
+            </div>
         </form>
-    </div>
 
+    </div>
+    <br>
 {% endblock %}
